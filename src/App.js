@@ -1,5 +1,5 @@
 import './App.css';
-import PlantCardContainer from './PlantCardContainer'
+import PlantCardContainer from './Components/PlantCardContainer'
 
 function App() {
   return (
