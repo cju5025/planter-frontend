@@ -2,17 +2,21 @@ import { Component } from 'react';
 import './PlantCardContainer.css';
 import PlantCard from './PlantCard';
 
-export default class PlantcardContainer extends Component {
+export default class PlantCardContainer extends Component {
 
-    getPlants = () => {
+    state = {
+        plants: []
+    }
+
+    componentDidMount = () => {
         fetch("http://localhost:3000/plants")
             .then(response => response.json())
             .then(results => results.data)
-            .then(plants => this.createPlantCard(plants))
+            .then(plants => this.setState({ plants: plants }))
     }
 
-    createPlantCard = (plants) => {
-        return plants.map(plant => {
+    createPlantCard = () => {
+        return this.state.plants.map(plant => {
             return <PlantCard imageURL={plant.image_url} alt={plant.slug} key={plant.id} />
         })
     }
@@ -20,7 +24,8 @@ export default class PlantcardContainer extends Component {
     render () {
         return (
             <div id="plant-card-container">
-                { this.getPlants() }
+                <h1>Planter</h1>
+                { this.createPlantCard() }
             </div>
         )
     }
