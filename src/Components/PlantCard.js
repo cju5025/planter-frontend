@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import '../CSS/PlantCard.css';
 
 export default class PlantCard extends Component {
     render () {

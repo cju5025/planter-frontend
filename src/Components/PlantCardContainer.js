@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import './PlantCardContainer.css';
+import '../CSS/PlantCardContainer.css';
 import PlantCard from './PlantCard';
 
 export default class PlantCardContainer extends Component {
