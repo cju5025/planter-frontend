@@ -8,8 +8,10 @@ export default class PlantCardContainer extends Component {
         plants: []
     }
 
+    baseURL = "http://localhost:3000/"
+
     componentDidMount = () => {
-        fetch("http://localhost:3000/plants")
+        fetch(baseURL + "plants")
             .then(response => response.json())
             .then(results => results.data)
             .then(plants => this.setState({ plants: plants }))
